@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DIALOGUE — Protocol-First Programming Language</title>
+  <style>
+    body { background: #0d1117; color: #f0f6fc; font-family: sans-serif; max-width: 800px; margin: 60px auto; padding: 0 20px; }
+    h1 { color: #00b4d8; font-size: 3rem; letter-spacing: 8px; }
+    h2 { color: #00b4d8; margin-top: 40px; }
+    p { color: #8b949e; line-height: 1.7; }
+    pre { background: #161b22; border: 1px solid #00b4d8; padding: 16px; border-radius: 6px; overflow-x: auto; }
+    code { color: #06d6a0; font-family: Consolas, monospace; }
+    a { color: #00b4d8; }
+    .tag { display: inline-block; border: 1px solid #00b4d8; color: #06d6a0; padding: 4px 12px; border-radius: 4px; margin-right: 8px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <h1>DIALOGUE</h1>
+  <p><em>Protocol-First Programming Language</em></p>
+  <span class="tag">Statically Typed</span>
+  <span class="tag">Session Types</span>
+  <span class="tag">Distributed Systems</span>
+
+  <h2>What is DIALOGUE?</h2>
+  <p>DIALOGUE is a programming language where the fundamental unit of code is a conversation between named participants — not a function, class, or module. If your system communicates, your code should say so explicitly.</p>
+
+  <h2>Example Program</h2>
+  <pre><code>dialogue authenticate(client, auth, db)
+  client -> auth : Login(username, password)
+  auth   -> db   : Lookup(username)
+  db     -> auth : User(hash) | NotFound
+  on NotFound:
+    auth -> client : Rejected
+    end
+  auth -> client : Token(jwt) | Rejected</code></pre>
+
+  <h2>Run It Yourself</h2>
+  <pre><code>python interpreter.py hello_world.dlg
+python interpreter.py fizzbuzz.dlg --args n=20
+python interpreter.py authenticate.dlg --args username=alice</code></pre>
+
+  <h2>Source Code</h2>
+  <p><a href="https://github.com/alvaradoalex2/Dialogue">github.com/alvaradoalex2/Dialogue</a></p>
+</body>
+</html>
