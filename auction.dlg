@@ -1,0 +1,11 @@
+-- Auction Protocol (Complex Program)
+-- A multi-participant auction with dynamic bidders
+
+dialogue auction(house, bidders: many)
+  requires item: String
+  requires reserve: Number
+  house   -> bidders : OpenBidding(item, reserve)
+  repeat until house decides close:
+    bidders -> house : Bid(amount) | Pass
+    house  -> bidders : Leading(amount) | Closed
+  house -> bidders : Winner(bidder) | NoBids

@@ -1,0 +1,12 @@
+-- Simple Calculator in DIALOGUE
+-- A conversation between a client and a calculator service
+
+dialogue calculate(client, calc)
+  requires operation: String
+  requires a: Number
+  requires b: Number
+  client -> calc : Compute(operation, a, b)
+  calc -> client : Result(value) | Error(message)
+  on Error:
+    client -> calc : Retry | Abort
+    on Abort: end

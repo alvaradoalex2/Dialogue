@@ -1,0 +1,6 @@
+-- Hello World in DIALOGUE
+-- A simple greeting exchange between a user and a greeter
+
+dialogue greet(user, greeter)
+  user -> greeter : Hello("World")
+  greeter -> user : Greetings("Hello, World! Welcome to DIALOGUE.")

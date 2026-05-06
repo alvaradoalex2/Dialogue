@@ -1,0 +1,11 @@
+-- User Authentication (from spec)
+-- A secure login flow between client, auth server, and database
+
+dialogue authenticate(client, auth, db)
+  client -> auth : Login(username, password)
+  auth   -> db   : Lookup(username)
+  db     -> auth : User(hash) | NotFound
+  on NotFound:
+    auth -> client : Rejected
+    end
+  auth -> client : Token(jwt) | Rejected

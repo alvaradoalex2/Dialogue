@@ -1,0 +1,8 @@
+-- Temperature Converter in DIALOGUE
+-- Converts between Celsius and Fahrenheit
+
+dialogue convert_temp(user, converter)
+  requires value: Number
+  requires unit: String
+  user -> converter : Convert(value, unit)
+  converter -> user : Converted(result, target_unit) | InvalidUnit(message)

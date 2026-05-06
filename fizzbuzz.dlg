@@ -1,0 +1,11 @@
+-- FizzBuzz in DIALOGUE
+-- A conversation between a runner and a printer that produces FizzBuzz output
+
+dialogue fizzbuzz(runner, printer)
+  requires n: Number
+  runner -> printer : Start(n)
+  repeat n times:
+    runner -> printer : Check(i)
+    printer -> runner : Fizz | Buzz | FizzBuzz | Number(i)
+  runner -> printer : Done
+  printer -> runner : Complete
